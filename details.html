@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details &amp; Compensation - Chat Moderation Team</title>
+    <meta name="description" content="Explore full details, revenue commission tiers, and payment methods for our Chat Moderator role.">
+
+    <!-- Premium Google Fonts: Inter unified across all weights for an executive look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           CSS VARIABLES — DARK EXECUTIVE GLASS THEME
+        ============================================= */
+        :root {
+            --bg-midnight: #020b1c;
+            --bg-deep-blue: #041c44;
+            --bg-sapphire: #073577;
+            --accent-cyan: #00f0ff;
+            --accent-blue: #0088ff;
+            --accent-emerald: #10b981;
+            --warning-red: #ef4444;
+
+            /* Liquid Glassmorphic Surfaces */
+            --glass-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%), rgba(4, 18, 46, 0.65);
+            --glass-card: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(10, 28, 65, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-inner-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 2px 0 rgba(0, 0, 0, 0.5);
+            --glass-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.75), 0 15px 35px -8px rgba(0, 30, 80, 0.5);
+
+            /* Unified Modern Typography */
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --text-heading: #ffffff;
+            --text-body: #dbeafe;
+            --text-muted: #94a3b8;
+            --telegram-blue: #229ed9;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body.scroll-locked {
+            overflow: hidden;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: 
+                radial-gradient(circle at 80% 12%, rgba(0, 162, 255, 0.4) 0%, rgba(6, 45, 110, 0.6) 42%, transparent 75%),
+                radial-gradient(circle at 12% 75%, rgba(0, 240, 255, 0.25) 0%, rgba(2, 18, 48, 0.7) 50%, transparent 80%),
+                linear-gradient(145deg, #020917 0%, #041a3d 45%, #021029 100%);
+            color: var(--text-body);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            padding: 2.5rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Ambient Background Light */
+        .bg-lines {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-glow-1 {
+            position: absolute;
+            top: -10%;
+            left: 20%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 150, 255, 0.16) 0%, transparent 65%);
+            filter: blur(70px);
+        }
+
+        .bg-glow-2 {
+            position: absolute;
+            bottom: -15%;
+            right: 15%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.14) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+
+        .light-streaks {
+            position: absolute;
+            inset: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    transparent 80px,
+                    rgba(255, 255, 255, 0.02) 80px,
+                    rgba(0, 210, 255, 0.05) 82px,
+                    rgba(255, 255, 255, 0.02) 84px,
+                    transparent 84px,
+                    transparent 180px
+                );
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 85%, transparent 100%);
+        }
+
+        /* =============================================
+           MAIN DETAILS CONTAINER
+        ============================================= */
+        .details-wrapper {
+            width: 100%;
+            max-width: 1080px;
+            background: var(--glass-surface);
+            backdrop-filter: blur(45px) saturate(200%);
+            -webkit-backdrop-filter: blur(45px) saturate(200%);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: var(--glass-shadow), var(--glass-inner-highlight);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .details-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 25%, rgba(0, 220, 255, 0.8) 50%, rgba(255, 255, 255, 0.6) 75%, transparent 100%);
+            z-index: 10;
+        }
+
+        /* Navigation Header */
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.8rem 3.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #dbeafe;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 8px 20px;
+            border-radius: 50px;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(0, 240, 255, 0.5);
+            transform: translateX(-3px);
+        }
+
+        .back-arrow {
+            display: inline-flex;
+            transition: transform 0.25s ease;
+        }
+
+        .back-link:hover .back-arrow {
+            transform: translateX(-3px);
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 22px;
+            height: 22px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 0 4px rgba(255, 255, 255, 0.18),
+                0 0 16px rgba(0, 210, 255, 0.85);
+        }
+
+        /* Content Area */
+        .content-body {
+            padding: 3.5rem 3.5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* Hero Header Inside Details */
+        .details-hero {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hiring-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 18px;
+            background: rgba(0, 240, 255, 0.12);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            border-radius: 50px;
+            color: #00f0ff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hiring-pill::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #00f0ff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00f0ff;
+            animation: pulseDot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(0.85); }
+        }
+
+        /* Unified Modern Typography */
+        .page-title {
+            font-size: clamp(2.3rem, 4.2vw, 3.2rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-subtitle {
+            font-size: 1.12rem;
+            color: #cbd5e1;
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        /* =============================================
+           SECTIONS & GLASS CARDS
+        ============================================= */
+        .section-card {
+            background: var(--glass-card);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 24px;
+            padding: 2.2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            border-color: rgba(0, 240, 255, 0.35);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1.3rem;
+        }
+
+        /* =============================================
+           STANDARDIZED EMOJI CONTAINERS & ALIGNMENT
+        ============================================= */
+        /* Section Header Icon Badge (42x42) */
+        .section-icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(0, 240, 255, 0.12);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            font-size: 1.3rem;
+            line-height: 1;
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .section-card:hover .section-icon-badge {
+            background: rgba(0, 240, 255, 0.22);
+            border-color: rgba(0, 240, 255, 0.6);
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 6px 18px rgba(0, 240, 255, 0.3);
+        }
+
+        .section-title {
+            font-size: 1.55rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+
+        .section-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #e2e8f0;
+        }
+
+        /* CRITICAL WARNING CARD */
+        .warning-card {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.16) 0%, rgba(185, 28, 28, 0.08) 100%), rgba(20, 5, 10, 0.55);
+            border: 1px solid rgba(239, 68, 68, 0.45);
+            border-radius: 24px;
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.18);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .warning-card:hover {
+            border-color: rgba(239, 68, 68, 0.7);
+        }
+
+        .warning-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.45);
+            font-size: 1.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+            animation: subtleWobble 4s infinite ease-in-out;
+        }
+
+        @keyframes subtleWobble {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(-5deg); }
+            40% { transform: rotate(5deg); }
+            60% { transform: rotate(-3deg); }
+            80% { transform: rotate(2deg); }
+        }
+
+        .warning-content h3 {
+            color: #fca5a5;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.35rem;
+        }
+
+        .warning-content p {
+            color: #fee2e2;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* =============================================
+           DUTIES GRID CARDS
+        ============================================= */
+        .duties-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .duty-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 20px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .duty-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 240, 255, 0.45);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Duty Micro-Icon Container */
+        .duty-icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            font-size: 1.4rem;
+            line-height: 1;
+            margin-bottom: 4px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .duty-card:hover .duty-icon-badge {
+            background: rgba(0, 240, 255, 0.2);
+            border-color: rgba(0, 240, 255, 0.6);
+            transform: scale(1.12) rotate(4deg);
+            box-shadow: 0 6px 16px rgba(0, 240, 255, 0.25);
+        }
+
+        .duty-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+        }
+
+        .duty-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        /* =============================================
+           COMPENSATION & COMMISSION TIERS
+        ============================================= */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tier-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 16px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card:hover {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: rgba(0, 240, 255, 0.45);
+            transform: translateY(-3px);
+        }
+
+        .tier-card.highlight {
+            border-color: rgba(0, 240, 255, 0.6);
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(0, 136, 255, 0.1) 100%);
+            box-shadow: 0 8px 20px rgba(0, 240, 255, 0.25);
+        }
+
+        .tier-card.highlight::after {
+            content: 'MAX TIER';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: #00f0ff;
+            color: #020b1c;
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-range {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        .tier-rate {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: #00f0ff;
+        }
+
+        .income-streams {
+            background: rgba(0, 240, 255, 0.07);
+            border: 1px dashed rgba(0, 240, 255, 0.35);
+            border-radius: 14px;
+            padding: 1.1rem 1.4rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.98rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sparkle-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            line-height: 1;
+            flex-shrink: 0;
+            animation: softPulse 2.5s infinite ease-in-out;
+        }
+
+        .income-streams strong {
+            color: #00f0ff;
+        }
+
+        /* =============================================
+           PAYMENT DETAILS (PIXEL-PERFECT EMOJI ALIGNMENT)
+        ============================================= */
+        .payment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .payment-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 15px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .payment-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 240, 255, 0.45);
+            transform: translateX(4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Micro-Icon Badge for Payment Row Emojis (38x38) */
+        .payment-emoji-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            font-size: 1.25rem;
+            line-height: 1;
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .payment-item:hover .payment-emoji-badge {
+            background: rgba(0, 240, 255, 0.22);
+            border-color: rgba(0, 240, 255, 0.6);
+            transform: scale(1.12) rotate(4deg);
+            box-shadow: 0 4px 14px rgba(0, 240, 255, 0.3);
+        }
+
+        .payment-item-text {
+            font-size: 1.02rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .payment-item-text strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* =============================================
+           RECRUITMENT CTA ACTIONS BLOCK
+        ============================================= */
+        .cta-action-panel {
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.25) 0%, rgba(0, 240, 255, 0.12) 100%), rgba(2, 18, 48, 0.7);
+            border: 1px solid rgba(0, 240, 255, 0.45);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 240, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.4rem;
+        }
+
+        .cta-panel-title {
+            font-size: clamp(2rem, 3.4vw, 2.5rem);
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-panel-desc {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            max-width: 620px;
+            line-height: 1.6;
+        }
+
+        .cta-button-group {
+            display: flex;
+            gap: 1.4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.8rem;
+        }
+
+        .action-btn {
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 38px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            letter-spacing: 0.4px;
+        }
+
+        .btn-emoji {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            line-height: 1;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .btn-schedule {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-schedule:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #00f0ff;
+            color: #00f0ff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.25);
+        }
+
+        .btn-schedule:hover .btn-emoji {
+            transform: rotate(35deg) scale(1.15);
+        }
+
+        .btn-training {
+            background: rgba(0, 240, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-training:hover {
+            background: rgba(0, 240, 255, 0.25);
+            border-color: #00f0ff;
+            color: #00f0ff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-training:hover .btn-emoji {
+            transform: rotate(15deg) scale(1.15);
+        }
+
+        .btn-apply-primary {
+            background: #ffffff;
+            color: #020b1c;
+            border: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 240, 255, 0.45);
+        }
+
+        .btn-apply-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            background: #00f0ff;
+            color: #020917;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 240, 255, 0.65);
+        }
+
+        .btn-apply-primary:hover .btn-emoji {
+            transform: translateY(-3px) rotate(-10deg) scale(1.2);
+        }
+
+        /* =============================================
+           SUBTLE AMBIENT EMOJI ANIMATIONS
+        ============================================= */
+        @keyframes softFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes softPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Apply gentle periodic float to payment badges */
+        .payment-list .payment-item:nth-child(1) .payment-emoji-badge {
+            animation: softFloat 4s infinite ease-in-out 0s;
+        }
+
+        .payment-list .payment-item:nth-child(2) .payment-emoji-badge {
+            animation: softFloat 4s infinite ease-in-out 1.3s;
+        }
+
+        .payment-list .payment-item:nth-child(3) .payment-emoji-badge {
+            animation: softFloat 4s infinite ease-in-out 2.6s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .warning-badge,
+            .sparkle-icon,
+            .payment-emoji-badge,
+            .duty-icon-badge,
+            .section-icon-badge {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Footer */
+        .site-footer {
+            padding: 1.5rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-copy {
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            color: #ffffff;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .telegram-btn:hover {
+            background: #ffffff;
+            color: var(--telegram-blue);
+            transform: translateY(-2px) scale(1.1);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .footer-link-btn {
+            background: none;
+            border: none;
+            color: #cbd5e1;
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 4px 2px;
+            transition: all 0.25s ease;
+        }
+
+        .footer-link-btn:hover {
+            color: #00f0ff;
+        }
+
+        /* =============================================
+           MODAL OVERLAYS (SHIFTS & QR MODALS)
+        ============================================= */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(1, 8, 20, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        /* Custom Glass Scrollbar for Modals */
+        .glass-modal {
+            background: linear-gradient(135deg, rgba(15, 30, 60, 0.94) 0%, rgba(6, 18, 42, 0.96) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 28px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 640px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            position: relative;
+            color: #f1f5f9;
+            animation: modalFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 240, 255, 0.4) rgba(255, 255, 255, 0.04);
+        }
+
+        .glass-modal::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .glass-modal::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+        }
+
+        .glass-modal::-webkit-scrollbar-thumb {
+            background: rgba(0, 240, 255, 0.35);
+            border-radius: 10px;
+        }
+
+        .glass-modal::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 240, 255, 0.6);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(24px) scale(0.96); }
+            to   { opacity: 1; transform: translateY(0)    scale(1); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 22px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .close-btn:hover { 
+            color: #ffffff; 
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.08);
+        }
+
+        .glass-modal h2 {
+            font-size: 1.85rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            padding-bottom: 0.9rem;
+        }
+
+        .glass-modal h3 {
+            font-size: 1.15rem;
+            color: #38bdf8;
+            margin-top: 1.4rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .glass-modal p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            font-size: 0.96rem;
+            line-height: 1.65;
+        }
+
+        /* =============================================
+           FAQ STYLES
+        ============================================= */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 1rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 16px 18px;
+            transition: all 0.25s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .faq-q-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(0, 240, 255, 0.15);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            color: #00f0ff;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .faq-question h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -0.01em;
+            line-height: 1.35;
+        }
+
+        .faq-answer p {
+            margin: 0 !important;
+            font-size: 0.94rem !important;
+            line-height: 1.6 !important;
+            color: #cbd5e1 !important;
+            padding-left: 38px;
+        }
+
+        /* Shift Item Card */
+        .shift-badge {
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.25s ease;
+        }
+
+        .shift-badge:hover {
+            background: rgba(0, 240, 255, 0.14);
+            border-color: rgba(0, 240, 255, 0.45);
+            transform: translateX(3px);
+        }
+
+        .shift-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .shift-emoji-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+
+        .shift-badge strong {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.98rem;
+        }
+
+        .shift-badge span.shift-time {
+            color: #00f0ff;
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        /* QR Code Modal */
+        .qr-modal-content {
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .qr-modal-content h2 {
+            border-bottom: none;
+            margin-bottom: 0.3rem;
+            padding-bottom: 0;
+        }
+
+        .qr-image {
+            width: 260px;
+            height: 295px;
+            object-fit: cover;
+            object-position: center 47%;
+            border-radius: 22px;
+            margin: 1.25rem auto 0.5rem;
+            display: block;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(0, 240, 255, 0.18);
+            border: 1.5px solid rgba(0, 240, 255, 0.38);
+        }
+
+        .telegram-handle {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #00f0ff;
+            letter-spacing: 0.5px;
+        }
+
+        /* =============================================
+           RESPONSIVE RULES
+        ============================================= */
+        @media (max-width: 992px) {
+            body { padding: 1rem; }
+
+            .nav-header { padding: 1.4rem 1.8rem; }
+            .content-body { padding: 2.5rem 1.8rem 3rem; gap: 2rem; }
+
+            .duties-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tiers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-action-panel {
+                padding: 2.2rem 1.5rem;
+            }
+
+            .cta-button-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+
+            .site-footer {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-right {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Atmospheric Glow & Ambient Rays -->
+    <div class="bg-lines" aria-hidden="true">
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+        <div class="light-streaks"></div>
+    </div>
+
+    <!-- Main Frosted Details Card -->
+    <div class="details-wrapper">
+
+        <!-- Header Nav -->
+        <header class="nav-header">
+            <a href="index.html" class="back-link">
+                <span class="back-arrow">&larr;</span> Back to Apply
+            </a>
+            <div class="logo-wrap">
+                <div class="logo-icon" aria-label="Company Logo"></div>
+            </div>
+        </header>
+
+        <!-- Body Content -->
+        <main class="content-body">
+
+            <!-- Hero Introduction -->
+            <div class="details-hero">
+                <div class="hiring-pill">💎 Creator Account Moderation • Full Time</div>
+                <h1 class="page-title">Chat Moderator Details</h1>
+                <p class="page-subtitle">
+                    Complete overview of your responsibilities, commission tiers, and payout schedule.
+                </p>
+            </div>
+
+            <!-- 1. Role Overview -->
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon-badge" aria-hidden="true">🌐</div>
+                    <h2 class="section-title">Role Overview</h2>
+                </div>
+                <p class="section-text">
+                    As a Chat Moderator, you will be assigned <strong>4 to 5 male or female profiles</strong> on an international adult dating platform. Your primary task is to correspond with users (mostly men) from developed countries specifically the <strong>US, Canada, Australia, and Western Europe</strong> to build serious, long-term relationships.
+                </p>
+            </section>
+
+            <!-- 2. Critical Warning -->
+            <div class="warning-card" role="alert">
+                <div class="warning-badge" aria-hidden="true">⚠️</div>
+                <div class="warning-content">
+                    <h3>CRITICAL WARNING</h3>
+                    <p>The platform is an adult dating website. Expect explicit content. If you are not comfortable with this, please do not apply.</p>
+                </div>
+            </div>
+
+            <!-- 3. Job to do -->
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon-badge" aria-hidden="true">💼</div>
+                    <h2 class="section-title">Job to do</h2>
+                </div>
+                <p class="section-text" style="margin-bottom: 1.2rem;">
+                    Your day-to-day responsibilities focus on maintaining active engagement and fostering meaningful communication across your assigned profiles:
+                </p>
+                
+                <div class="duties-grid">
+                    <!-- Chatting -->
+                    <div class="duty-card">
+                        <div class="duty-icon-badge" aria-hidden="true">💬</div>
+                        <div class="duty-name">Chatting</div>
+                        <p class="duty-desc">Engage with users to attract them and build constant, long-term communication.</p>
+                    </div>
+
+                    <!-- Correspondence -->
+                    <div class="duty-card">
+                        <div class="duty-icon-badge" aria-hidden="true">✉️</div>
+                        <div class="duty-name">Correspondence</div>
+                        <p class="duty-desc">Create and send letters/mails to users you are communicating with.</p>
+                    </div>
+
+                    <!-- Content Creation -->
+                    <div class="duty-card">
+                        <div class="duty-icon-badge" aria-hidden="true">📸</div>
+                        <div class="duty-name">Content Creation</div>
+                        <p class="duty-desc">Create posts on the platform and manage the profile's media (photos, audio, video, stickers).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Compensation and Earnings -->
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon-badge" aria-hidden="true">💰</div>
+                    <h2 class="section-title">Compensation and Earnings</h2>
+                </div>
+                <p class="section-text">
+                    Your earnings scale directly with your activity and performance. Your total monthly revenue determines your commission rate:
+                </p>
+
+                <!-- Commission Rate Tiers -->
+                <div class="tiers-grid">
+                    <div class="tier-card">
+                        <div class="tier-range">$0 – $299</div>
+                        <div class="tier-rate">35%</div>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-range">$300 – $1,399</div>
+                        <div class="tier-rate">40%</div>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-range">$1,400 – $2,299</div>
+                        <div class="tier-rate">42.5%</div>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-range">$2,300 – $3,199</div>
+                        <div class="tier-rate">45%</div>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-range">$3,200 – $4,499</div>
+                        <div class="tier-rate">47.5%</div>
+                    </div>
+                    <div class="tier-card highlight">
+                        <div class="tier-range">$4,500+</div>
+                        <div class="tier-rate">50%</div>
+                    </div>
+                </div>
+
+                <!-- Revenue Streams -->
+                <div class="income-streams" style="margin-bottom: 0;">
+                    <span class="sparkle-icon" aria-hidden="true">✨</span>
+                    <div><strong>You earn from:</strong> Chats + Mails/Media + Virtual Gifts + Chat media + Chat Posts.</div>
+                </div>
+            </section>
+
+            <!-- 5. Payment Details (Pixel-Perfect Alignment with Emojis) -->
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon-badge" aria-hidden="true">💳</div>
+                    <h2 class="section-title">Payment Details</h2>
+                </div>
+                
+                <div class="payment-list">
+                    <!-- Schedule -->
+                    <div class="payment-item">
+                        <div class="payment-emoji-badge" aria-hidden="true">📅</div>
+                        <div class="payment-item-text">
+                            <strong>Schedule:</strong> Distributed on or before the 25th of the following month.
+                        </div>
+                    </div>
+
+                    <!-- Minimum Payout -->
+                    <div class="payment-item">
+                        <div class="payment-emoji-badge" aria-hidden="true">💵</div>
+                        <div class="payment-item-text">
+                            <strong>Minimum Payout:</strong> You must earn at least $20. If less, it rolls over to the next payout.
+                        </div>
+                    </div>
+
+                    <!-- Methods -->
+                    <div class="payment-item">
+                        <div class="payment-emoji-badge" aria-hidden="true">🏦</div>
+                        <div class="payment-item-text">
+                            <strong>Methods:</strong> GCash, PayMaya, BPI, or any bank that receives international payouts.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Next Steps & Engagement CTA Actions -->
+            <section class="cta-action-panel">
+                <h2 class="cta-panel-title">Ready to Join Our Team?</h2>
+                <p class="cta-panel-desc">
+                    We are actively onboarding dedicated moderators. Explore the training process or submit your application right now to secure your spot.
+                </p>
+                <div class="cta-button-group">
+                    <a href="training.html" class="action-btn btn-training">
+                        <span class="btn-emoji" aria-hidden="true">🎓</span> Training Process
+                    </a>
+                    <a href="apply.html" class="action-btn btn-apply-primary">
+                        <span class="btn-emoji" aria-hidden="true">🚀</span> Apply Now (Telegram)
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-left">
+                <span class="footer-copy">Made by Thors</span>
+                <button type="button" class="telegram-btn" onclick="openModal('qr-modal')" aria-label="Contact on Telegram" title="Contact on Telegram">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.11.03-1.87 1.19-5.29 3.5-.5.34-.95.51-1.35.5-.44-.01-1.29-.25-1.92-.46-.77-.25-1.38-.39-1.33-.82.03-.22.33-.45.91-.69 3.56-1.55 5.93-2.57 7.12-3.06 3.39-1.41 4.1-1.66 4.56-1.67.1 0 .33.02.48.13.13.09.17.22.18.36z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="footer-right">
+                <button type="button" class="footer-link-btn" onclick="openModal('faq-modal')">FAQ</button>
+                <button type="button" class="footer-link-btn" onclick="openModal('privacy-modal')">Privacy Policy</button>
+                <button type="button" class="footer-link-btn" onclick="openModal('terms-modal')">Terms &amp; Conditions</button>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- =============================================
+         FAQ MODAL
+    ============================================= -->
+    <div id="faq-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="faq-modal-title">
+        <div class="glass-modal" style="max-width: 680px;">
+            <button type="button" class="close-btn" onclick="closeModal('faq-modal')" aria-label="Close FAQ">&times;</button>
+            <h2 id="faq-modal-title">Frequently Asked Questions</h2>
+            <p style="color: #94a3b8; margin-bottom: 1.2rem;">Quick answers to essential questions regarding earnings, schedule, and training.</p>
+            
+            <div class="faq-list">
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q-badge" aria-hidden="true">Q</span>
+                        <h3>Is there a base pay or hourly rate?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, this is a 100% commission-based role. There is no fixed base pay. Your earnings are a percentage of the revenue you generate through chats, mails, and gifts. Your cut ranges from 35% to 50% depending on your total monthly revenue.</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q-badge" aria-hidden="true">Q</span>
+                        <h3>When is payday? Is it weekly?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Payouts are monthly and are distributed on or before the 25th of the following month. We pay via GCash, PayMaya, or BPI.</p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q-badge" aria-hidden="true">Q</span>
+                        <h3>Is the training paid?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, the training is unpaid. However, it is completely free to attend you will not be asked to pay anything. It is a 6-day intensive program to prepare you for the role.</p>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q-badge" aria-hidden="true">Q</span>
+                        <h3>Do I automatically pass training?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No. On the 5th day, you will receive a decision on whether you pass and will be joining the Core Team. If you pass, the 6th day is your final training day, and you must sign a contract before starting paid work.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.6rem; display: flex; gap: 1rem; justify-content: flex-end;">
+                <a href="training.html" class="action-btn btn-training" style="padding: 12px 28px; font-size: 0.95rem; text-decoration: none;">
+                    <span class="btn-emoji" aria-hidden="true">🎓</span> Training Process &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================
+         TELEGRAM QR CODE MODAL
+    ============================================= -->
+    <div id="qr-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+        <div class="glass-modal qr-modal-content">
+            <button type="button" class="close-btn" onclick="closeModal('qr-modal')" aria-label="Close Telegram QR">&times;</button>
+            <h2 id="qr-modal-title">Scan QR Code</h2>
+            <p style="color: #94a3b8; margin-bottom: 0.25rem;">Scan the QR code to connect on Telegram</p>
+            <img src="qr.webp" alt="Telegram QR Code for @NOTURUSER12" class="qr-image">
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="glass-modal">
+            <button type="button" class="close-btn" onclick="closeModal('privacy-modal')">&times;</button>
+            <h2>Privacy Policy</h2>
+            <p>Your privacy is important to us. This Privacy Policy explains how we handle your information when you use our website and services.</p>
+            <h3>1. Information We Collect</h3>
+            <p>We only collect basic information necessary to evaluate job applications when you voluntarily submit them through our communication channels.</p>
+            <h3>2. Data Security</h3>
+            <p>We implement standard security measures to protect your applicant information.</p>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="terms-modal" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="glass-modal">
+            <button type="button" class="close-btn" onclick="closeModal('terms-modal')">&times;</button>
+            <h2>Terms &amp; Conditions</h2>
+            <p>By accessing and reviewing this job specification, you agree to comply with our candidate terms and confidentiality agreements.</p>
+            <h3>1. Confidentiality</h3>
+            <p>Platform specifics, user data, and revenue models remain strictly confidential between the applicant and the agency.</p>
+        </div>
+    </div>
+
+    <!-- =============================================
+         JAVASCRIPT
+    ============================================= -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.classList.add('scroll-locked');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.classList.remove('scroll-locked');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            ['faq-modal', 'qr-modal', 'privacy-modal', 'terms-modal'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el && el.classList.contains('active')) {
+                    closeModal(id);
+                }
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('modal-overlay')) return;
+            closeModal(e.target.id);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';">
+    <meta name="referrer" content="no-referrer">
+    <title>Application Form - Chat Moderator</title>
+    <meta name="description" content="Complete and copy your official Chat Moderator application form and submit it to HR on Telegram.">
+
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           CSS VARIABLES — DARK LIQUID GLASS THEME
+        ============================================= */
+        :root {
+            --bg-midnight: #020813;
+            --bg-deep: #041533;
+            --accent-cyan: #00f0ff;
+            --accent-blue: #0088ff;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+
+            --glass-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(3, 14, 36, 0.72);
+            --glass-card: linear-gradient(145deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.015) 100%), rgba(5, 20, 48, 0.68);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --glass-shadow: 0 40px 95px -15px rgba(0, 0, 0, 0.85), 0 20px 45px -10px rgba(0, 20, 60, 0.65);
+
+            --text-heading: #ffffff;
+            --text-body: #e2e8f0;
+            --text-muted: #94a3b8;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body.scroll-locked {
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                radial-gradient(circle at 85% 12%, rgba(0, 150, 255, 0.35) 0%, rgba(4, 32, 82, 0.55) 45%, transparent 75%),
+                radial-gradient(circle at 12% 88%, rgba(0, 240, 255, 0.22) 0%, rgba(2, 14, 38, 0.75) 55%, transparent 80%),
+                linear-gradient(145deg, #010611 0%, #031533 48%, #010b1e 100%);
+            color: var(--text-body);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+            position: relative;
+            padding: 2rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* =============================================
+           ATMOSPHERIC LIGHT RAYS & AMBIENT GLOW
+        ============================================= */
+        .bg-lines {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-glow-1 {
+            position: absolute;
+            top: -15%;
+            left: 15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 140, 255, 0.16) 0%, transparent 65%);
+            filter: blur(65px);
+        }
+
+        .bg-glow-2 {
+            position: absolute;
+            bottom: -15%;
+            right: 10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.14) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+
+        .light-streaks {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 80px,
+                rgba(0, 195, 255, 0.03) 80px,
+                rgba(255, 255, 255, 0.07) 105px,
+                rgba(0, 195, 255, 0.03) 130px,
+                transparent 130px,
+                transparent 240px
+            );
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.35) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.35) 100%);
+        }
+
+        /* =============================================
+           MAIN GLASS CONTAINER
+        ============================================= */
+        .apply-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 960px;
+            background: var(--glass-surface);
+            backdrop-filter: blur(36px) saturate(165%);
+            -webkit-backdrop-filter: blur(36px) saturate(165%);
+            border-radius: 32px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow), inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =============================================
+           TOP NAVIGATION HEADER
+        ============================================= */
+        .nav-header {
+            padding: 1.6rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(2, 10, 26, 0.35);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-body);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .back-link:hover {
+            background: rgba(0, 240, 255, 0.15);
+            border-color: var(--accent-cyan);
+            color: #ffffff;
+            transform: translateX(-3px);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 50px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #6ee7b7;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        /* =============================================
+           CONTENT BODY
+        ============================================= */
+        .content-body {
+            padding: 2.8rem 3rem 3.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+        }
+
+        .apply-hero {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .apply-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 18px;
+            border-radius: 50px;
+            background: rgba(0, 175, 240, 0.14);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            color: var(--accent-cyan);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 175, 240, 0.18);
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.1rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-heading);
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .page-subtitle {
+            font-size: 1.02rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* =============================================
+           STEP-BY-STEP INSTRUCTIONS BANNER
+        ============================================= */
+        .steps-banner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.1rem;
+        }
+
+        .step-card {
+            background: var(--glass-card);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 18px;
+            padding: 1.25rem 1.3rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .step-card.active-step {
+            border-color: rgba(0, 240, 255, 0.45);
+            background: linear-gradient(145deg, rgba(0, 175, 240, 0.14) 0%, rgba(4, 22, 54, 0.75) 100%);
+            box-shadow: 0 12px 30px rgba(0, 175, 240, 0.18);
+        }
+
+        .step-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0088ff, #00f0ff);
+            color: #020813;
+            font-weight: 800;
+            font-size: 0.92rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 240, 255, 0.35);
+        }
+
+        .step-info h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-info p {
+            font-size: 0.84rem;
+            color: #cbd5e1;
+            line-height: 1.45;
+        }
+
+        /* =============================================
+           APPLICATION FORM CARD
+        ============================================= */
+        .form-card {
+            background: var(--glass-card);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 2.2rem 2.4rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        }
+
+        .form-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.6rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .form-card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .mode-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: rgba(0, 240, 255, 0.12);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            color: var(--accent-cyan);
+        }
+
+        .mode-status-badge.locked-mode {
+            background: rgba(16, 185, 129, 0.14);
+            border-color: rgba(16, 185, 129, 0.4);
+            color: #34d399;
+        }
+
+        .form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(2, 10, 28, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: 0.85rem 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .field-row:focus-within {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.15);
+            background: rgba(2, 14, 38, 0.8);
+        }
+
+        .field-row.readonly-row {
+            background: rgba(0, 175, 240, 0.07);
+            border: 1px solid rgba(0, 240, 255, 0.28);
+        }
+
+        .field-label {
+            font-weight: 700;
+            font-size: 0.96rem;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .field-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 10px;
+            padding: 11px 14px;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.96rem;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .field-input::placeholder {
+            color: rgba(148, 163, 184, 0.65);
+        }
+
+        .field-input:focus {
+            border-color: var(--accent-cyan);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .field-input:disabled,
+        .field-input[readonly] {
+            background: rgba(15, 23, 42, 0.55);
+            border-color: rgba(255, 255, 255, 0.08);
+            color: #cbd5e1;
+            cursor: not-allowed;
+        }
+
+        .field-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            padding-right: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300f0ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+        }
+
+        .field-select option {
+            background-color: #04142e;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        /* Locked Referral Field */
+        .referred-input-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            background: rgba(2, 12, 30, 0.75);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            border-radius: 10px;
+            padding: 10px 14px;
+            user-select: none;
+        }
+
+        .referred-value {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.3px;
+        }
+
+        .locked-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #94a3b8;
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Live Preview Box */
+        .preview-box-wrap {
+            margin-top: 1.5rem;
+            background: rgba(1, 8, 20, 0.75);
+            border: 1px dashed rgba(0, 240, 255, 0.35);
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.65rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-cyan);
+        }
+
+        .preview-content {
+            font-family: 'Inter', monospace;
+            font-size: 0.94rem;
+            line-height: 1.75;
+            color: #f1f5f9;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Toast / Status Alert */
+        .copy-toast {
+            display: none;
+            margin-top: 1.1rem;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(16, 185, 129, 0.16);
+            border: 1px solid rgba(16, 185, 129, 0.45);
+            color: #6ee7b7;
+            font-weight: 600;
+            font-size: 0.92rem;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copy-toast.show {
+            display: flex;
+        }
+
+        .copy-toast.error {
+            background: rgba(239, 68, 68, 0.16);
+            border-color: rgba(239, 68, 68, 0.45);
+            color: #fca5a5;
+        }
+
+        /* =============================================
+           FORM ACTION BUTTONS
+        ============================================= */
+        .form-actions {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            padding: 15px 28px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.96rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            flex: 1;
+            min-width: 190px;
+        }
+
+        .btn-edit {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border: 1.5px solid rgba(255, 255, 255, 0.24);
+        }
+
+        .btn-edit:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-copy {
+            background: linear-gradient(135deg, rgba(0, 175, 240, 0.25), rgba(0, 240, 255, 0.15));
+            color: #ffffff;
+            border: 1.5px solid var(--accent-cyan);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
+        }
+
+        .btn-copy:hover {
+            background: var(--accent-cyan);
+            color: #020813;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(0, 240, 255, 0.4);
+        }
+
+        .btn-send-hr {
+            background: #ffffff;
+            color: #020c1f;
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.35);
+        }
+
+        .btn-send-hr:hover {
+            background: linear-gradient(135deg, #00f0ff 0%, #00a8ff 100%);
+            color: #010814;
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 16px 38px rgba(0, 240, 255, 0.55);
+        }
+
+        /* =============================================
+           HR SUBMISSION INSTRUCTIONS PANEL
+        ============================================= */
+        .hr-instructions-card {
+            display: none;
+            background: linear-gradient(145deg, rgba(8, 28, 64, 0.92) 0%, rgba(3, 14, 34, 0.96) 100%);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            border-radius: 24px;
+            padding: 2.2rem 2.4rem;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            animation: slideFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hr-instructions-card.visible {
+            display: block;
+        }
+
+        @keyframes slideFadeIn {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hr-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+            padding-bottom: 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hr-badge-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.25), rgba(0, 240, 255, 0.15));
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(0, 240, 255, 0.15);
+        }
+
+        .hr-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hr-exact-instruction {
+            background: rgba(2, 10, 26, 0.78);
+            border: 1px solid rgba(0, 240, 255, 0.22);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+
+        .hr-exact-instruction strong {
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .hr-checklist {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.1rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .hr-check-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 1.25rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .hr-check-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+
+        .hr-step-tag {
+            display: inline-flex;
+            align-items: center;
+            align-self: flex-start;
+            padding: 3px 10px;
+            border-radius: 6px;
+            background: rgba(0, 240, 255, 0.14);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            color: var(--accent-cyan);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .hr-check-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .hr-check-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        .hr-check-desc strong {
+            display: inline;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .hr-telegram-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .tg-direct-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            height: 52px;
+            padding: 0 20px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.92rem;
+            white-space: nowrap;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tg-hr-btn {
+            background: linear-gradient(135deg, #0088ff, #00f0ff);
+            color: #020813;
+            border: none;
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.3);
+        }
+
+        .tg-hr-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(0, 240, 255, 0.48);
+        }
+
+        .tg-confirm-btn {
+            background: rgba(255, 255, 255, 0.07);
+            color: #ffffff;
+            border: 1.5px solid rgba(0, 240, 255, 0.35);
+        }
+
+        .tg-confirm-btn:hover {
+            background: rgba(0, 240, 255, 0.15);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+        .site-footer {
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(2, 10, 26, 0.4);
+            font-size: 0.9rem;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .footer-copy {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .telegram-btn:hover {
+            background: #229ed9;
+            border-color: #66d9ff;
+            transform: translateY(-2px) scale(1.08);
+            box-shadow: 0 6px 18px rgba(34, 158, 217, 0.55);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-link-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link-btn:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* =============================================
+           MODALS
+        ============================================= */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(1, 6, 18, 0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .glass-modal {
+            background: linear-gradient(145deg, rgba(10, 32, 72, 0.94) 0%, rgba(3, 14, 36, 0.97) 100%);
+            backdrop-filter: blur(35px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 28px;
+            padding: 2.6rem;
+            width: 100%;
+            max-width: 560px;
+            max-height: 86vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            position: relative;
+            transform: translateY(24px) scale(0.96);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .glass-modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .glass-modal h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            padding-bottom: 0.7rem;
+        }
+
+        .glass-modal h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 1.2rem 0 0.4rem;
+            color: #38bdf8;
+        }
+
+        .glass-modal p {
+            margin-bottom: 0.9rem;
+            line-height: 1.65;
+            font-size: 0.96rem;
+            color: #cbd5e1;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.4rem;
+            right: 1.4rem;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #cbd5e1;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: rotate(90deg);
+        }
+
+        /* FAQ List */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 1.2rem 1.4rem;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-q-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(0, 240, 255, 0.16);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            color: #00f0ff;
+            font-weight: 800;
+            font-size: 0.82rem;
+            flex-shrink: 0;
+        }
+
+        .faq-question h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .faq-answer p {
+            margin: 0 !important;
+            padding-left: 36px;
+            font-size: 0.92rem !important;
+        }
+
+        /* Refined QR Modal Placement */
+        .qr-modal-content {
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .qr-modal-content h2 {
+            border-bottom: none;
+            margin-bottom: 0.25rem;
+            padding-bottom: 0;
+        }
+
+        .qr-frame {
+            width: 260px;
+            height: 295px;
+            margin: 1.25rem auto 0.5rem;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1.5px solid rgba(0, 240, 255, 0.38);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65), 0 0 28px rgba(0, 240, 255, 0.18);
+            background: #020813;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 47%;
+            display: block;
+        }
+
+        @media (max-width: 860px) {
+            body { padding: 1rem; }
+            .nav-header { padding: 1.2rem 1.5rem; }
+            .content-body { padding: 2rem 1.5rem; }
+            .steps-banner { grid-template-columns: 1fr; }
+            .field-row { grid-template-columns: 1fr; gap: 0.45rem; }
+            .hr-checklist { grid-template-columns: 1fr; }
+            .hr-telegram-links { grid-template-columns: 1fr; }
+            .form-actions { flex-direction: column; }
+            .action-btn { width: 100%; }
+            .site-footer { flex-direction: column; gap: 1rem; padding: 1.4rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Atmospheric Background -->
+    <div class="bg-lines" aria-hidden="true">
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+        <div class="light-streaks"></div>
+    </div>
+
+    <div class="apply-wrapper">
+
+        <!-- Header -->
+        <header class="nav-header">
+            <a href="details.html" class="back-link">
+                <span>&larr;</span> Back to Job Details
+            </a>
+            <div class="security-badge" title="Client-side encrypted &amp; sanitized form">
+                <span>🔒</span> Secure Application Portal
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <main class="content-body">
+
+            <!-- Hero -->
+            <div class="apply-hero">
+                <div class="apply-pill">🚀 Candidate Application</div>
+                <h1 class="page-title">Apply via Telegram</h1>
+                <p class="page-subtitle">
+                    Follow the 3 steps below to complete your application form, copy your formatted details, and submit them directly to HR.
+                </p>
+            </div>
+
+            <!-- 3-Step Instructions -->
+            <section class="steps-banner" aria-label="Application Steps">
+                <div class="step-card active-step" id="step-indicator-1">
+                    <span class="step-num">1</span>
+                    <div class="step-info">
+                        <h3>Input Your Details</h3>
+                        <p>Fill out your Name, Age, Country/Location, Gender, and Working/studying status in the form below.</p>
+                    </div>
+                </div>
+                <div class="step-card" id="step-indicator-2">
+                    <span class="step-num">2</span>
+                    <div class="step-info">
+                        <h3>Click Copy Form</h3>
+                        <p>Once done editing, click <strong>Copy Form</strong> to copy your formatted application to your clipboard.</p>
+                    </div>
+                </div>
+                <div class="step-card" id="step-indicator-3">
+                    <span class="step-num">3</span>
+                    <div class="step-info">
+                        <h3>Send it to HR</h3>
+                        <p>Click <strong>Send it to HR</strong> to view the official Telegram submission and screenshot confirmation steps.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Form Card -->
+            <section class="form-card" aria-labelledby="form-heading">
+                <div class="form-card-header">
+                    <h2 class="form-card-title" id="form-heading">
+                        <span>📝</span> Candidate Application Form
+                    </h2>
+                    <span class="mode-status-badge" id="form-mode-badge">✏️ Editing Mode</span>
+                </div>
+
+                <form id="candidate-form" onsubmit="return false;" autocomplete="off" novalidate>
+                    <div class="form-grid">
+                        <!-- Name -->
+                        <div class="field-row">
+                            <label class="field-label" for="field-name">Name :</label>
+                            <input type="text" id="field-name" class="field-input editable-field" placeholder="Enter your full name" maxlength="80" required>
+                        </div>
+
+                        <!-- Age -->
+                        <div class="field-row">
+                            <label class="field-label" for="field-age">Age :</label>
+                            <input type="text" id="field-age" class="field-input editable-field" placeholder="e.g. 22 (Must be 18+)" maxlength="20" required>
+                        </div>
+
+                        <!-- Country/Location -->
+                        <div class="field-row">
+                            <label class="field-label" for="field-country">Country/Location :</label>
+                            <input type="text" id="field-country" class="field-input editable-field" placeholder="Example: Philippines, Santa Ana Laguna" maxlength="140" required>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="field-row">
+                            <label class="field-label" for="field-gender">Gender :</label>
+                            <select id="field-gender" class="field-input field-select editable-field" required>
+                                <option value="" disabled selected>Select Gender (Male / Female / Prefer not to say)</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <!-- Working/studying? -->
+                        <div class="field-row">
+                            <label class="field-label" for="field-status">Working/studying?:</label>
+                            <select id="field-status" class="field-input field-select editable-field" required>
+                                <option value="" disabled selected>Select Status (Working / Studying / Working and Studying)</option>
+                                <option value="Working">Working</option>
+                                <option value="Studying">Studying</option>
+                                <option value="Working and Studying">Working and Studying</option>
+                            </select>
+                        </div>
+
+                        <!-- Referred by (STRICTLY NON-EDITABLE) -->
+                        <div class="field-row readonly-row">
+                            <span class="field-label">Referred by:</span>
+                            <div class="referred-input-wrap" aria-readonly="true">
+                                <span class="referred-value" id="locked-referral">@noturuser12</span>
+                                <span class="locked-tag">🔒 Locked Referral</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Formatted Output Preview -->
+                    <div class="preview-box-wrap">
+                        <div class="preview-header">
+                            <span>📋 Formatted Form Preview</span>
+                            <span>Ready to Copy</span>
+                        </div>
+                        <pre class="preview-content" id="form-preview">Name : 
+Age : 
+Country/Location : 
+Gender : 
+Working/studying?: 
+Referred by: @noturuser12</pre>
+                    </div>
+
+                    <!-- Feedback Toast -->
+                    <div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
+
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="action-btn btn-edit" id="toggle-edit-btn" onclick="toggleEditMode()">
+                            <span id="toggle-edit-icon">✅</span>
+                            <span id="toggle-edit-text">Done Editing</span>
+                        </button>
+
+                        <button type="button" class="action-btn btn-copy" id="copy-form-btn" onclick="copyApplicationForm()">
+                            <span>📋</span>
+                            <span>Copy Form</span>
+                        </button>
+
+                        <button type="button" class="action-btn btn-send-hr" id="send-hr-btn" onclick="showHrInstructions()">
+                            <span>✈️</span>
+                            <span>Send it to HR</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- HR Submission Instructions Box (Revealed when "Send it to HR" is clicked) -->
+            <section class="hr-instructions-card" id="hr-instructions-section" aria-live="polite">
+                <div class="hr-header">
+                    <div class="hr-badge-icon" aria-hidden="true">📨</div>
+                    <div>
+                        <h2>HR Submission Instructions</h2>
+                        <p style="font-size: 0.88rem; color: #94a3b8; margin: 0;">Complete the 3 steps below so your application and referral are verified.</p>
+                    </div>
+                </div>
+
+                <div class="hr-exact-instruction">
+                    Send the form to Telegram <strong>@Marilag_18</strong> (HR). Once done, provide a screenshot and send it to Telegram <strong>@noturuser12</strong> for confirmation. Once done, wait for the HR response — it usually takes about an hour or a day. If it is taking longer, contact <strong>Thors</strong> and he will refer you.
+                </div>
+
+                <div class="hr-checklist">
+                    <div class="hr-check-item">
+                        <span class="hr-step-tag">Step 1</span>
+                        <div class="hr-check-title">Send Form to HR</div>
+                        <p class="hr-check-desc">Paste and send your copied application form directly to <strong>@Marilag_18</strong> on Telegram.</p>
+                    </div>
+                    <div class="hr-check-item">
+                        <span class="hr-step-tag">Step 2</span>
+                        <div class="hr-check-title">Send Confirmation Screenshot</div>
+                        <p class="hr-check-desc">Take a screenshot of your message to HR and send it to <strong>@noturuser12</strong> for confirmation.</p>
+                    </div>
+                    <div class="hr-check-item">
+                        <span class="hr-step-tag">Step 3</span>
+                        <div class="hr-check-title">Await HR Response</div>
+                        <p class="hr-check-desc">HR typically replies within 1 hour to 1 day. If it takes longer, contact <strong>Thors</strong> and he will refer you.</p>
+                    </div>
+                </div>
+
+                <div class="hr-telegram-links">
+                    <a href="https://t.me/Marilag_18" target="_blank" rel="noopener noreferrer" class="tg-direct-btn tg-hr-btn">
+                        <span>✈️</span> Send form to HR
+                    </a>
+                    <a href="https://t.me/noturuser12" target="_blank" rel="noopener noreferrer" class="tg-direct-btn tg-confirm-btn">
+                        <span>📸</span> Send Screenshot
+                    </a>
+                    <button type="button" class="tg-direct-btn tg-confirm-btn" onclick="openModal('qr-modal')">
+                        <span>📱</span> Scan QR Code
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-left">
+                <span class="footer-copy">Made by Thors</span>
+                <button type="button" class="telegram-btn" onclick="openModal('qr-modal')" aria-label="Contact on Telegram" title="Contact on Telegram">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.11.03-1.87 1.19-5.29 3.5-.5.34-.95.51-1.35.5-.44-.01-1.29-.25-1.92-.46-.77-.25-1.38-.39-1.33-.82.03-.22.33-.45.91-.69 3.56-1.55 5.93-2.57 7.12-3.06 3.39-1.41 4.1-1.66 4.56-1.67.1 0 .33.02.48.13.13.09.17.22.18.36z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="footer-right">
+                <button type="button" class="footer-link-btn" onclick="openModal('faq-modal')">FAQ</button>
+                <button type="button" class="footer-link-btn" onclick="openModal('privacy-modal')">Privacy Policy</button>
+                <button type="button" class="footer-link-btn" onclick="openModal('terms-modal')">Terms &amp; Conditions</button>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- =============================================
+         FAQ MODAL
+    ============================================= -->
+    <div id="faq-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="faq-modal-title">
+        <div class="glass-modal" style="max-width: 680px;">
+            <button type="button" class="close-btn" onclick="closeModal('faq-modal')" aria-label="Close FAQ">&times;</button>
+            <h2 id="faq-modal-title">Frequently Asked Questions</h2>
+            <p style="color: #94a3b8; margin-bottom: 1.2rem;">Quick answers to essential questions regarding earnings, schedule, and training.</p>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q-badge" aria-hidden="true">Q</span>
+                        <h3>Is there a base pay or hourly rate?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, this is a 100% commission-based role. There is no fixed base pay. Your earnings are a percentage of the revenue you generate through chats, mails, and gifts. Your cut ranges from 35% to 50% depending on your total monthly revenue.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q-badge" aria-hidden="true">Q</span>
+                        <h3>When is payday? Is it weekly?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Payouts are monthly and are distributed on or before the 25th of the following month. We pay via GCash, PayMaya, or BPI.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q-badge" aria-hidden="true">Q</span>
+                        <h3>Is the training paid?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, the training is unpaid. However, it is completely free to attend you will not be asked to pay anything. It is a 6-day intensive program to prepare you for the role.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q-badge" aria-hidden="true">Q</span>
+                        <h3>Do I automatically pass training?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No. On the 5th day, you will receive a decision on whether you pass and will be joining the Core Team. If you pass, the 6th day is your final training day, and you must sign a contract before starting paid work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================
+         TELEGRAM QR CODE MODAL
+    ============================================= -->
+    <div id="qr-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+        <div class="glass-modal qr-modal-content">
+            <button type="button" class="close-btn" onclick="closeModal('qr-modal')" aria-label="Close Telegram QR">&times;</button>
+            <h2 id="qr-modal-title">Scan QR Code</h2>
+            <p style="color: #94a3b8; margin-bottom: 0.5rem;">Scan the QR code to connect on Telegram</p>
+            <div class="qr-frame">
+                <img src="qr.webp" alt="Telegram QR Code for @NOTURUSER12" class="qr-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="glass-modal">
+            <button type="button" class="close-btn" onclick="closeModal('privacy-modal')">&times;</button>
+            <h2>Privacy Policy</h2>
+            <p>Your privacy is important to us. All application details entered on this page are processed strictly locally in your browser for you to copy and send directly to HR on Telegram.</p>
+            <h3>1. Zero Server Storage</h3>
+            <p>We do not store or transmit your form inputs to third-party servers. You control your data and submit it directly via Telegram.</p>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="terms-modal" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="glass-modal">
+            <button type="button" class="close-btn" onclick="closeModal('terms-modal')">&times;</button>
+            <h2>Terms &amp; Conditions</h2>
+            <p>By submitting an application, you confirm that you are at least 18 years of age and agree to our confidentiality guidelines.</p>
+        </div>
+    </div>
+
+    <!-- =============================================
+         SECURE APPLICATION JAVASCRIPT
+    ============================================= -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Immutable referral constant — cannot be modified by user input
+            var LOCKED_REFERRAL = '@noturuser12';
+            var isEditing = true;
+
+            var nameInput = document.getElementById('field-name');
+            var ageInput = document.getElementById('field-age');
+            var countryInput = document.getElementById('field-country');
+            var genderInput = document.getElementById('field-gender');
+            var statusInput = document.getElementById('field-status');
+            var lockedReferralEl = document.getElementById('locked-referral');
+            var previewEl = document.getElementById('form-preview');
+            var toastEl = document.getElementById('copy-toast');
+
+            // Sanitize plain text to strip control characters or HTML injection attempts
+            function sanitizeInput(val) {
+                if (typeof val !== 'string') return '';
+                return val.replace(/[\u0000-\u001F\u007F<>]/g, '').trim();
+            }
+
+            // Build the exact formatted string with locked referral
+            function buildFormattedApplication() {
+                var nameVal = sanitizeInput(nameInput.value);
+                var ageVal = sanitizeInput(ageInput.value);
+                var countryVal = sanitizeInput(countryInput.value);
+                var genderVal = sanitizeInput(genderInput.value);
+                var statusVal = sanitizeInput(statusInput.value);
+
+                // Ensure referral text in DOM also stays intact
+                if (lockedReferralEl.textContent !== LOCKED_REFERRAL) {
+                    lockedReferralEl.textContent = LOCKED_REFERRAL;
+                }
+
+                return (
+                    'Name : ' + nameVal + '\n' +
+                    'Age : ' + ageVal + '\n' +
+                    'Country/Location : ' + countryVal + '\n' +
+                    'Gender : ' + genderVal + '\n' +
+                    'Working/studying?: ' + statusVal + '\n' +
+                    'Referred by: ' + LOCKED_REFERRAL
+                );
+            }
+
+            function updatePreview() {
+                previewEl.textContent = buildFormattedApplication();
+            }
+
+            [nameInput, ageInput, countryInput, genderInput, statusInput].forEach(function(input) {
+                input.addEventListener('input', updatePreview);
+                input.addEventListener('change', updatePreview);
+            });
+
+            function showToast(message, isError) {
+                toastEl.textContent = message;
+                toastEl.className = 'copy-toast show' + (isError ? ' error' : '');
+            }
+
+            window.toggleEditMode = function() {
+                isEditing = !isEditing;
+                var inputs = document.querySelectorAll('.editable-field');
+                var badge = document.getElementById('form-mode-badge');
+                var btnIcon = document.getElementById('toggle-edit-icon');
+                var btnText = document.getElementById('toggle-edit-text');
+
+                inputs.forEach(function(inp) {
+                    if (inp.tagName === 'SELECT') {
+                        inp.disabled = !isEditing;
+                    } else {
+                        inp.readOnly = !isEditing;
+                    }
+                });
+
+                if (isEditing) {
+                    badge.textContent = '✏️ Editing Mode';
+                    badge.classList.remove('locked-mode');
+                    btnIcon.textContent = '✅';
+                    btnText.textContent = 'Done Editing';
+                    nameInput.focus();
+                } else {
+                    badge.textContent = '🔒 Ready to Copy';
+                    badge.classList.add('locked-mode');
+                    btnIcon.textContent = '✏️';
+                    btnText.textContent = 'Edit Form';
+                    document.getElementById('step-indicator-2').classList.add('active-step');
+                    showToast('✅ Form locked for copying. Click "Copy Form" below or "Edit Form" to make changes.', false);
+                }
+                updatePreview();
+            };
+
+            window.copyApplicationForm = function() {
+                var formatted = buildFormattedApplication();
+                var nameVal = sanitizeInput(nameInput.value);
+                var ageVal = sanitizeInput(ageInput.value);
+
+                if (!nameVal || !ageVal) {
+                    showToast('⚠️ Please fill in your details in the form before copying.', true);
+                    if (!isEditing) window.toggleEditMode();
+                    if (!nameVal) nameInput.focus();
+                    else ageInput.focus();
+                    return;
+                }
+
+                if (isEditing) {
+                    window.toggleEditMode();
+                }
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(formatted).then(function() {
+                        showToast('✅ Application form copied to clipboard! Now click "Send it to HR".', false);
+                        document.getElementById('step-indicator-2').classList.add('active-step');
+                    }).catch(function() {
+                        fallbackCopy(formatted);
+                    });
+                } else {
+                    fallbackCopy(formatted);
+                }
+            };
+
+            function fallbackCopy(text) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('✅ Application form copied to clipboard! Now click "Send it to HR".', false);
+                } catch (err) {
+                    showToast('⚠️ Please manually copy the text from the preview box above.', true);
+                }
+                document.body.removeChild(ta);
+            }
+
+            window.showHrInstructions = function() {
+                var hrSection = document.getElementById('hr-instructions-section');
+                hrSection.classList.add('visible');
+                document.getElementById('step-indicator-3').classList.add('active-step');
+                hrSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            };
+
+            window.openModal = function(modalId) {
+                var modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.classList.add('scroll-locked');
+                }
+            };
+
+            window.closeModal = function(modalId) {
+                var modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.classList.remove('scroll-locked');
+                }
+            };
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key !== 'Escape') return;
+                ['faq-modal', 'qr-modal', 'privacy-modal', 'terms-modal'].forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el && el.classList.contains('active')) {
+                        window.closeModal(id);
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (e.target && e.target.classList && e.target.classList.contains('modal-overlay')) {
+                    window.closeModal(e.target.id);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
