@@ -754,8 +754,28 @@
         }
 
         /* =============================================
-           FOOTER
+           FOOTER QUOTE & FOOTER
         ============================================= */
+        .footer-quote {
+            max-width: 760px;
+            margin: 0.2rem auto 0;
+            padding: 1rem 1.4rem 0.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.84rem;
+            font-style: italic;
+            line-height: 1.55;
+            color: #94a3b8;
+        }
+
+        .footer-quote cite {
+            display: inline-block;
+            margin-left: 4px;
+            font-style: italic;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
         .site-footer {
             padding: 1.5rem 3rem;
             display: flex;
@@ -1050,7 +1070,7 @@
                     <span class="step-num">1</span>
                     <div class="step-info">
                         <h3>Input Your Details</h3>
-                        <p>Fill out your Name, Age, Country/Location, Gender, and Working/studying status in the form below.</p>
+                        <p>Fill out your Name, Age, Country &amp; Address, Gender, and Working/studying status in the form below.</p>
                     </div>
                 </div>
                 <div class="step-card" id="step-indicator-2">
@@ -1089,13 +1109,13 @@
                         <!-- Age -->
                         <div class="field-row">
                             <label class="field-label" for="field-age">Age :</label>
-                            <input type="text" id="field-age" class="field-input editable-field" placeholder="e.g. 22 (Must be 18+)" maxlength="20" required>
+                            <input type="text" id="field-age" class="field-input editable-field" placeholder="e.g. 22 (Must be 21+)" maxlength="20" required>
                         </div>
 
-                        <!-- Country/Location -->
+                        <!-- Country & Address -->
                         <div class="field-row">
-                            <label class="field-label" for="field-country">Country/Location :</label>
-                            <input type="text" id="field-country" class="field-input editable-field" placeholder="Example: Philippines, Santa Ana Laguna" maxlength="140" required>
+                            <label class="field-label" for="field-country">Country &amp; Address :</label>
+                            <input type="text" id="field-country" class="field-input editable-field" placeholder="Example: Philippines, Santa Ana Laguna" maxlength="180" required>
                         </div>
 
                         <!-- Gender -->
@@ -1113,10 +1133,9 @@
                         <div class="field-row">
                             <label class="field-label" for="field-status">Working/studying?:</label>
                             <select id="field-status" class="field-input field-select editable-field" required>
-                                <option value="" disabled selected>Select Status (Working / Studying / Working and Studying)</option>
+                                <option value="" disabled selected>Select Status (Working / Unemployed)</option>
                                 <option value="Working">Working</option>
-                                <option value="Studying">Studying</option>
-                                <option value="Working and Studying">Working and Studying</option>
+                                <option value="Unemployed">Unemployed</option>
                             </select>
                         </div>
 
@@ -1138,7 +1157,7 @@
                         </div>
                         <pre class="preview-content" id="form-preview">Name : 
 Age : 
-Country/Location : 
+Country &amp; Address : 
 Gender : 
 Working/studying?: 
 Referred by: @noturuser12</pre>
@@ -1211,6 +1230,10 @@ Referred by: @noturuser12</pre>
                     </button>
                 </div>
             </section>
+
+            <blockquote class="footer-quote">
+                "Nobody is coming to save you. The universe doesn't care about your exhaustion. Your feelings are entirely irrelevant to the outcome. Either you execute the work with ruthless consistency, or you accept the life you have right now." <cite>- Thors</cite>
+            </blockquote>
 
         </main>
 
@@ -1313,7 +1336,7 @@ Referred by: @noturuser12</pre>
         <div class="glass-modal">
             <button type="button" class="close-btn" onclick="closeModal('terms-modal')">&times;</button>
             <h2>Terms &amp; Conditions</h2>
-            <p>By submitting an application, you confirm that you are at least 18 years of age and agree to our confidentiality guidelines.</p>
+            <p>By submitting an application, you confirm that you are at least 21 years of age and agree to our confidentiality guidelines.</p>
         </div>
     </div>
 
@@ -1359,7 +1382,7 @@ Referred by: @noturuser12</pre>
                 return (
                     'Name : ' + nameVal + '\n' +
                     'Age : ' + ageVal + '\n' +
-                    'Country/Location : ' + countryVal + '\n' +
+                    'Country & Address : ' + countryVal + '\n' +
                     'Gender : ' + genderVal + '\n' +
                     'Working/studying?: ' + statusVal + '\n' +
                     'Referred by: ' + LOCKED_REFERRAL
@@ -1416,12 +1439,20 @@ Referred by: @noturuser12</pre>
                 var formatted = buildFormattedApplication();
                 var nameVal = sanitizeInput(nameInput.value);
                 var ageVal = sanitizeInput(ageInput.value);
+                var parsedAge = parseInt(ageVal, 10);
 
                 if (!nameVal || !ageVal) {
                     showToast('⚠️ Please fill in your details in the form before copying.', true);
                     if (!isEditing) window.toggleEditMode();
                     if (!nameVal) nameInput.focus();
                     else ageInput.focus();
+                    return;
+                }
+
+                if (isNaN(parsedAge) || parsedAge < 21) {
+                    showToast('⚠️ Applicants must be 21+ years old to apply.', true);
+                    if (!isEditing) window.toggleEditMode();
+                    ageInput.focus();
                     return;
                 }
 

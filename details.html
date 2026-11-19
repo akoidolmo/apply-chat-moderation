@@ -1088,8 +1088,229 @@
         }
 
         /* =============================================
+           TUTORIAL SIDE BAR & MODAL
+        ============================================= */
+        .tutorial-side-bar {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 500;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 13px;
+            background: linear-gradient(135deg, rgba(15, 30, 60, 0.92) 0%, rgba(6, 18, 42, 0.95) 100%);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(0, 240, 255, 0.45);
+            border-right: none;
+            border-radius: 18px 0 0 18px;
+            box-shadow: -8px 12px 32px rgba(0, 0, 0, 0.55), 0 0 22px rgba(0, 240, 255, 0.2);
+            color: #ffffff;
+            font-family: var(--font-main);
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tutorial-side-bar:hover {
+            padding-right: 19px;
+            background: linear-gradient(135deg, rgba(18, 42, 82, 0.96) 0%, rgba(8, 26, 58, 0.98) 100%);
+            border-color: rgba(0, 240, 255, 0.85);
+            box-shadow: -10px 14px 36px rgba(0, 0, 0, 0.65), 0 0 28px rgba(0, 240, 255, 0.38);
+            color: #00f0ff;
+        }
+
+        .tutorial-bar-dot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(0, 240, 255, 0.16);
+            border: 1px solid rgba(0, 240, 255, 0.5);
+            color: #00f0ff;
+            flex-shrink: 0;
+        }
+
+        .tutorial-bar-dot svg {
+            margin-left: 2px;
+        }
+
+        .tutorial-bar-label {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-transform: uppercase;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
+        }
+
+        .tutorial-modal-content {
+            max-width: 780px;
+        }
+
+        .tutorial-modal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.1rem;
+            margin-top: 1.2rem;
+        }
+
+        .tutorial-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            transition: all 0.25s ease;
+        }
+
+        .tutorial-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(0, 240, 255, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .tutorial-video-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #020917;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .tutorial-thumb-btn {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+            background: #020917;
+            cursor: pointer;
+            display: block;
+            overflow: hidden;
+        }
+
+        .tutorial-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .tutorial-card:hover .tutorial-thumb-img {
+            transform: scale(1.04);
+            filter: brightness(0.85);
+        }
+
+        .tutorial-play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to top, rgba(2, 9, 23, 0.65) 0%, rgba(2, 9, 23, 0.15) 60%, transparent 100%);
+        }
+
+        .tutorial-play-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(0, 240, 255, 0.22);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(0, 240, 255, 0.8);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(0, 240, 255, 0.35);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease;
+        }
+
+        .tutorial-play-circle svg {
+            margin-left: 3px;
+        }
+
+        .tutorial-thumb-btn:hover .tutorial-play-circle,
+        .tutorial-thumb-btn:focus-visible .tutorial-play-circle {
+            transform: scale(1.12);
+            background: rgba(0, 240, 255, 0.9);
+            color: #020b1c;
+        }
+
+        .tutorial-video-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .tutorial-video-title {
+            font-size: 0.94rem !important;
+            font-weight: 700 !important;
+            color: #ffffff !important;
+            line-height: 1.4 !important;
+            margin: 0 !important;
+        }
+
+        .tutorial-ext-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            width: fit-content;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #38bdf8;
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .tutorial-ext-link:hover {
+            color: #00f0ff;
+            text-decoration: underline;
+            transform: translateX(2px);
+        }
+
+        /* =============================================
            RESPONSIVE RULES
         ============================================= */
+        @media (max-width: 1180px) {
+            .tutorial-side-bar {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+                transform: none;
+                flex-direction: row;
+                padding: 11px 18px;
+                border-right: 1px solid rgba(0, 240, 255, 0.45);
+                border-radius: 50px;
+            }
+
+            .tutorial-side-bar:hover {
+                padding-right: 18px;
+                transform: translateY(-2px);
+            }
+
+            .tutorial-bar-label {
+                writing-mode: horizontal-tb;
+                transform: none;
+                letter-spacing: 0.8px;
+            }
+        }
+
         @media (max-width: 992px) {
             body { padding: 1rem; }
 
@@ -1128,6 +1349,12 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .tutorial-modal-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1173,7 +1400,7 @@
                     <h2 class="section-title">Role Overview</h2>
                 </div>
                 <p class="section-text">
-                    As a Chat Moderator, you will be assigned <strong>4 to 5 male or female profiles</strong> on an international adult dating platform. Your primary task is to correspond with users (mostly men) from developed countries specifically the <strong>US, Canada, Australia, and Western Europe</strong> to build serious, long-term relationships.
+                    As a Chat Moderator, you will be assigned <strong>4 to 5 female profiles</strong> on an international adult dating platform. Your primary task is to correspond with users (mostly men) from developed countries specifically the <strong>US, Canada, Australia, and Western Europe</strong> to build serious, long-term relationships.
                 </p>
             </section>
 
@@ -1336,6 +1563,109 @@
 
     </div>
 
+    <!-- Floating Side Bar Button: Tutorial -->
+    <button type="button" class="tutorial-side-bar" onclick="openModal('tutorial-modal')" aria-label="Open Tutorial videos">
+        <span class="tutorial-bar-dot" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+        </span>
+        <span class="tutorial-bar-label">Tutorial</span>
+    </button>
+
+    <!-- =============================================
+         TUTORIAL MODAL
+    ============================================= -->
+    <div id="tutorial-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tutorial-modal-title">
+        <div class="glass-modal tutorial-modal-content">
+            <button type="button" class="close-btn" onclick="closeModal('tutorial-modal')" aria-label="Close Tutorial">&times;</button>
+            <h2 id="tutorial-modal-title">Tutorial</h2>
+            <p>If you want to know more about the job feel free to view the videos provided below</p>
+
+            <div class="tutorial-modal-grid">
+                <!-- Video 1 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-video-box" data-video-id="7bj0w2ZXaK8" data-video-title="How to Become an OF Chatter and Start Earning Fast (Step-by-Step)">
+                        <button type="button" class="tutorial-thumb-btn" onclick="playTutorialVideo(this)" aria-label="Play video: How to Become an OF Chatter and Start Earning Fast (Step-by-Step)">
+                            <img src="https://i.ytimg.com/vi/7bj0w2ZXaK8/hqdefault.jpg" alt="How to Become an OF Chatter and Start Earning Fast (Step-by-Step)" class="tutorial-thumb-img" loading="lazy">
+                            <span class="tutorial-play-overlay" aria-hidden="true">
+                                <span class="tutorial-play-circle">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                    <h3 class="tutorial-video-title">How to Become an OF Chatter and Start Earning Fast (Step-by-Step)</h3>
+                    <a href="https://youtu.be/7bj0w2ZXaK8" target="_blank" rel="noopener noreferrer" class="tutorial-ext-link">
+                        Watch on YouTube &nearr;
+                    </a>
+                </article>
+
+                <!-- Video 2 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-video-box" data-video-id="ZFF8dyk1Jlk" data-video-title="Applying for Only fans Chatter 2 Min Loom Video Interview">
+                        <button type="button" class="tutorial-thumb-btn" onclick="playTutorialVideo(this)" aria-label="Play video: Applying for Only fans Chatter 2 Min Loom Video Interview">
+                            <img src="https://i.ytimg.com/vi/ZFF8dyk1Jlk/hqdefault.jpg" alt="Applying for Only fans Chatter 2 Min Loom Video Interview" class="tutorial-thumb-img" loading="lazy">
+                            <span class="tutorial-play-overlay" aria-hidden="true">
+                                <span class="tutorial-play-circle">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                    <h3 class="tutorial-video-title">Applying for Only fans Chatter 2 Min Loom Video Interview</h3>
+                    <a href="https://youtu.be/ZFF8dyk1Jlk" target="_blank" rel="noopener noreferrer" class="tutorial-ext-link">
+                        Watch on YouTube &nearr;
+                    </a>
+                </article>
+
+                <!-- Video 3 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-video-box" data-video-id="O-KSXbv4vHs" data-video-title="How to Become a Great Chatter on OnlyFans: Tips for Boosting Subscriber Engagement and Earnings">
+                        <button type="button" class="tutorial-thumb-btn" onclick="playTutorialVideo(this)" aria-label="Play video: How to Become a Great Chatter on OnlyFans: Tips for Boosting Subscriber Engagement and Earnings">
+                            <img src="https://i.ytimg.com/vi/O-KSXbv4vHs/hqdefault.jpg" alt="How to Become a Great Chatter on OnlyFans: Tips for Boosting Subscriber Engagement and Earnings" class="tutorial-thumb-img" loading="lazy">
+                            <span class="tutorial-play-overlay" aria-hidden="true">
+                                <span class="tutorial-play-circle">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                    <h3 class="tutorial-video-title">How to Become a Great Chatter on OnlyFans: Tips for Boosting Subscriber Engagement and Earnings</h3>
+                    <a href="https://youtu.be/O-KSXbv4vHs" target="_blank" rel="noopener noreferrer" class="tutorial-ext-link">
+                        Watch on YouTube &nearr;
+                    </a>
+                </article>
+
+                <!-- Video 4 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-video-box" data-video-id="o_Gs5DY8PzY" data-video-title="The Complete A-Z OnlyFans Chatting Playbook">
+                        <button type="button" class="tutorial-thumb-btn" onclick="playTutorialVideo(this)" aria-label="Play video: The Complete A-Z OnlyFans Chatting Playbook">
+                            <img src="https://i.ytimg.com/vi/o_Gs5DY8PzY/hqdefault.jpg" alt="The Complete A-Z OnlyFans Chatting Playbook" class="tutorial-thumb-img" loading="lazy">
+                            <span class="tutorial-play-overlay" aria-hidden="true">
+                                <span class="tutorial-play-circle">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                    <h3 class="tutorial-video-title">The Complete A-Z OnlyFans Chatting Playbook</h3>
+                    <a href="https://www.youtube.com/watch?v=o_Gs5DY8PzY" target="_blank" rel="noopener noreferrer" class="tutorial-ext-link">
+                        Watch on YouTube &nearr;
+                    </a>
+                </article>
+            </div>
+        </div>
+    </div>
+
     <!-- =============================================
          FAQ MODAL
     ============================================= -->
@@ -1445,13 +1775,23 @@
         }
 
         function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
+            var modalEl = document.getElementById(modalId);
+            if (!modalEl) return;
+            modalEl.classList.remove('active');
             document.body.classList.remove('scroll-locked');
+
+            if (modalId === 'tutorial-modal') {
+                modalEl.querySelectorAll('.tutorial-video-box').forEach(function(box) {
+                    if (box.dataset.thumbHtml && box.querySelector('iframe')) {
+                        box.innerHTML = box.dataset.thumbHtml;
+                    }
+                });
+            }
         }
 
         document.addEventListener('keydown', function(e) {
             if (e.key !== 'Escape') return;
-            ['faq-modal', 'qr-modal', 'privacy-modal', 'terms-modal'].forEach(function(id) {
+            ['tutorial-modal', 'faq-modal', 'qr-modal', 'privacy-modal', 'terms-modal'].forEach(function(id) {
                 var el = document.getElementById(id);
                 if (el && el.classList.contains('active')) {
                     closeModal(id);
@@ -1463,6 +1803,29 @@
             if (!e.target.classList.contains('modal-overlay')) return;
             closeModal(e.target.id);
         });
+
+        function playTutorialVideo(buttonEl) {
+            var container = buttonEl.closest('.tutorial-video-box');
+            if (!container) return;
+
+            var videoId = container.getAttribute('data-video-id');
+            var videoTitle = container.getAttribute('data-video-title') || 'Tutorial Video';
+            if (!videoId) return;
+
+            if (!container.dataset.thumbHtml) {
+                container.dataset.thumbHtml = container.innerHTML;
+            }
+
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0';
+            iframe.title = videoTitle;
+            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.allowFullscreen = true;
+
+            container.innerHTML = '';
+            container.appendChild(iframe);
+        }
     </script>
 
 </body>
