@@ -1070,7 +1070,7 @@
                     <span class="step-num">1</span>
                     <div class="step-info">
                         <h3>Input Your Details</h3>
-                        <p>Fill out your Name, Age, Country &amp; Address, Gender, and Working/studying status in the form below.</p>
+                        <p>Fill out your Name, Location, Age, and Student/working status in the form below.</p>
                     </div>
                 </div>
                 <div class="step-card" id="step-indicator-2">
@@ -1102,49 +1102,38 @@
                     <div class="form-grid">
                         <!-- Name -->
                         <div class="field-row">
-                            <label class="field-label" for="field-name">Name :</label>
+                            <label class="field-label" for="field-name">Name:</label>
                             <input type="text" id="field-name" class="field-input editable-field" placeholder="Enter your full name" maxlength="80" required>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="field-row">
+                            <label class="field-label" for="field-country">Location:</label>
+                            <input type="text" id="field-country" class="field-input editable-field" placeholder="Example: Philippines, Santa Ana Laguna" maxlength="180" required>
                         </div>
 
                         <!-- Age -->
                         <div class="field-row">
-                            <label class="field-label" for="field-age">Age :</label>
+                            <label class="field-label" for="field-age">Age:</label>
                             <input type="text" id="field-age" class="field-input editable-field" placeholder="e.g. 22 (Must be 21+)" maxlength="20" required>
                         </div>
 
-                        <!-- Country & Address -->
+                        <!-- Student/working? -->
                         <div class="field-row">
-                            <label class="field-label" for="field-country">Country &amp; Address :</label>
-                            <input type="text" id="field-country" class="field-input editable-field" placeholder="Example: Philippines, Santa Ana Laguna" maxlength="180" required>
-                        </div>
-
-                        <!-- Gender -->
-                        <div class="field-row">
-                            <label class="field-label" for="field-gender">Gender :</label>
-                            <select id="field-gender" class="field-input field-select editable-field" required>
-                                <option value="" disabled selected>Select Gender (Male / Female / Prefer not to say)</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Prefer not to say">Prefer not to say</option>
-                            </select>
-                        </div>
-
-                        <!-- Working/studying? -->
-                        <div class="field-row">
-                            <label class="field-label" for="field-status">Working/studying?:</label>
+                            <label class="field-label" for="field-status">Student/working?:</label>
                             <select id="field-status" class="field-input field-select editable-field" required>
-                                <option value="" disabled selected>Select Status (Working / Unemployed)</option>
+                                <option value="" disabled selected>Select Status (Student / Working)</option>
+                                <option value="Student">Student</option>
                                 <option value="Working">Working</option>
-                                <option value="Unemployed">Unemployed</option>
                             </select>
                         </div>
 
-                        <!-- Referred by (STRICTLY NON-EDITABLE) -->
+                        <!-- Recruiter (STRICTLY NON-EDITABLE) -->
                         <div class="field-row readonly-row">
-                            <span class="field-label">Referred by:</span>
+                            <span class="field-label">Recruiter:</span>
                             <div class="referred-input-wrap" aria-readonly="true">
                                 <span class="referred-value" id="locked-referral">@noturuser12</span>
-                                <span class="locked-tag">🔒 Locked Referral</span>
+                                <span class="locked-tag">🔒 Locked Recruiter</span>
                             </div>
                         </div>
                     </div>
@@ -1155,12 +1144,12 @@
                             <span>📋 Formatted Form Preview</span>
                             <span>Ready to Copy</span>
                         </div>
-                        <pre class="preview-content" id="form-preview">Name : 
-Age : 
-Country &amp; Address : 
-Gender : 
-Working/studying?: 
-Referred by: @noturuser12</pre>
+                        <pre class="preview-content" id="form-preview">Name: 
+Location: 
+Age: 
+Student/working?: 
+
+Recruiter: @noturuser12</pre>
                     </div>
 
                     <!-- Feedback Toast -->
@@ -1353,8 +1342,7 @@ Referred by: @noturuser12</pre>
 
             var nameInput = document.getElementById('field-name');
             var ageInput = document.getElementById('field-age');
-            var countryInput = document.getElementById('field-country');
-            var genderInput = document.getElementById('field-gender');
+            var locationInput = document.getElementById('field-country');
             var statusInput = document.getElementById('field-status');
             var lockedReferralEl = document.getElementById('locked-referral');
             var previewEl = document.getElementById('form-preview');
@@ -1366,26 +1354,24 @@ Referred by: @noturuser12</pre>
                 return val.replace(/[\u0000-\u001F\u007F<>]/g, '').trim();
             }
 
-            // Build the exact formatted string with locked referral
+            // Build the exact formatted string with locked recruiter
             function buildFormattedApplication() {
                 var nameVal = sanitizeInput(nameInput.value);
+                var locationVal = sanitizeInput(locationInput.value);
                 var ageVal = sanitizeInput(ageInput.value);
-                var countryVal = sanitizeInput(countryInput.value);
-                var genderVal = sanitizeInput(genderInput.value);
                 var statusVal = sanitizeInput(statusInput.value);
 
-                // Ensure referral text in DOM also stays intact
+                // Ensure recruiter text in DOM also stays intact
                 if (lockedReferralEl.textContent !== LOCKED_REFERRAL) {
                     lockedReferralEl.textContent = LOCKED_REFERRAL;
                 }
 
                 return (
-                    'Name : ' + nameVal + '\n' +
-                    'Age : ' + ageVal + '\n' +
-                    'Country & Address : ' + countryVal + '\n' +
-                    'Gender : ' + genderVal + '\n' +
-                    'Working/studying?: ' + statusVal + '\n' +
-                    'Referred by: ' + LOCKED_REFERRAL
+                    'Name: ' + nameVal + '\n' +
+                    'Location: ' + locationVal + '\n' +
+                    'Age: ' + ageVal + '\n' +
+                    'Student/working?: ' + statusVal + '\n\n' +
+                    'Recruiter: ' + LOCKED_REFERRAL
                 );
             }
 
@@ -1393,7 +1379,7 @@ Referred by: @noturuser12</pre>
                 previewEl.textContent = buildFormattedApplication();
             }
 
-            [nameInput, ageInput, countryInput, genderInput, statusInput].forEach(function(input) {
+            [nameInput, locationInput, ageInput, statusInput].forEach(function(input) {
                 input.addEventListener('input', updatePreview);
                 input.addEventListener('change', updatePreview);
             });
